@@ -7,10 +7,20 @@
 
 import Foundation
 
-struct ChessPiece {
+struct ChessPiece: Hashable {
     
     let type: PieceType
     let color: Color
+    
+    init(type: PieceType, color: Color) {
+        self.color = color
+        self.type = type
+    }
+    
+    init(type: PieceType) {
+        self.color = .none
+        self.type = type
+    }
     
     var point: Int {
         return type.point
@@ -66,7 +76,7 @@ extension ChessPiece {
     }
     
     enum Color {
-        case black, white
+        case none, black, white
     }
     
 }
