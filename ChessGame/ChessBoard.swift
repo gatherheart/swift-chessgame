@@ -23,6 +23,10 @@ class ChessBoard {
         self.board = self.board.merge(positions)
     }
     
+    func positions() -> [Position] {
+        return Array(board.keys)
+    }
+    
     func piece(at position: Position) -> ChessPiece? {
         return board[position]
     }

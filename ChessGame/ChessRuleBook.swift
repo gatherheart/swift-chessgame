@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol RuleRetunable {
+protocol RuleReturnable {
     func startPositions() -> [Position: ChessPiece]
     func validPositions(of piece: ChessPiece) -> [Position]
 }
 
-class ChessRuleBook: RuleRetunable {
+class ChessRuleBook: RuleReturnable {
     typealias PieceType = ChessPiece.PieceType
     
     func startPositions() -> [Position: ChessPiece] {

@@ -27,7 +27,7 @@ class RuleTestSpec: QuickSpec {
     
     let pieceTypes: [ChessPiece.PieceType] = [.luke, .knight, .bishop, .none, .queen, .bishop, .knight, .luke]
     var board: [Position: ChessPiece] = [:]
-    var ruleBook: RuleRetunable = ChessRuleBook()
+    var ruleBook: RuleReturnable = ChessRuleBook()
 
     private func setBoard() {
         for row in Position.Row.allCases {
@@ -57,8 +57,8 @@ class RuleTestSpec: QuickSpec {
             self.ruleBook = ChessRuleBook()
         }
         
-        describe("보드 초기화 테스트") {
-            context("startPositions를 호출하면 최초 보드 생성") {
+        describe("보드 초기화 룰 테스트") {
+            context("startPositions를 호출하면 최초 보드 포지션 생성") {
                 let positions = self.ruleBook.startPositions()
                 
                 it("positions row x col의 개수가 맞아야 함") {
