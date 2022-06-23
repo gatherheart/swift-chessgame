@@ -8,6 +8,8 @@
 import Foundation
 
 func main() -> Void {
+    let board = ChessBoard(positions: ChessRuleBook().startPositions())
+    print(board)
 }
 
 main()

@@ -7,13 +7,20 @@
 
 import Foundation
 
-struct Position: Hashable {
+struct Position: Hashable, Equatable {
     let row: Row
     let col: Column
+    
+    static func == (lhs: Position, rhs: Position) -> Bool {
+        return lhs.row == rhs.row && lhs.col == rhs.col
+    }
+    
 }
 
 extension Position {
-    enum Row: Int, CaseIterable {
+    enum Row: Int, CaseIterable, RangeExpression {
+        typealias Bound = Int
+        
         case one = 0, two, three, four, five, six, seven, eight
         
         init?(rawValue: Int) {
@@ -29,9 +36,28 @@ extension Position {
             default: return nil
             }
         }
+        
+        var min: Row {
+            Row.allCases.first ?? .one
+        }
+        
+        var max: Row {
+            Row.allCases.last ?? .eight
+        }
+        
+        public func relative<C>(to collection: C) -> Swift.Range<Int> where C : Collection, Bound == C.Index {
+            let start = (collection.startIndex > min.rawValue && collection.startIndex < max.rawValue ) ? collection.startIndex : min.rawValue
+            let end = (collection.endIndex < max.rawValue && collection.endIndex > 0) ? collection.endIndex : max.rawValue
+            
+            return Range<Int>.init(uncheckedBounds: (start, end))
+        }
+
+        public func contains(_ element: Int) -> Bool {
+            return (Row.one.rawValue ... Row.eight.rawValue).contains(element)
+        }
     }
     
-    enum Column: Int {
+    enum Column: Int, CaseIterable {
         case a = 0, b, c, d, e, f, g, h
         
         init?(rawValue: Int) {

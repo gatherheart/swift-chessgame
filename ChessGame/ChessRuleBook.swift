@@ -15,6 +15,17 @@ protocol RuleRetunable {
 class ChessRuleBook: RuleRetunable {
     typealias PieceType = ChessPiece.PieceType
     
+    func startPositions() -> [Position: ChessPiece] {
+        return makeLine(at: 0)
+            .merge(makeLine(at: 1))
+            .merge(makeLine(at: 7))
+            .merge(makeLine(at: 8))
+    }
+    
+    func validPositions(of piece: ChessPiece) -> [Position] {
+        return []
+    }
+    
     private func pieces(at row: Position.Row, with color: ChessPiece.Color) -> [ChessPiece] {
         switch row {
         case .one, .eight:
@@ -23,7 +34,7 @@ class ChessRuleBook: RuleRetunable {
         case .two, .seven:
             return Position.Row.allCases.map { _ in ChessPiece(type: .pawn, color: color)}
         default:
-            return Position.Row.allCases.map { _ in ChessPiece(type: .none)}
+            return Position.Row.allCases.map { _ in ChessPiece.nonePiece }
         }
     }
     
@@ -36,24 +47,4 @@ class ChessRuleBook: RuleRetunable {
         return (0..<8 as Range<Int>).reduce(into: [:]) { prev, index in prev.updateValue(pieces[index], forKey: Position(row: row, col: .init(rawValue: index)!)) }
     }
     
-    func startPositions() -> [Position : ChessPiece] {
-        return makeLine(at: 0)
-            .merge(makeLine(at: 1))
-            .merge(makeLine(at: 7))
-            .merge(makeLine(at: 8))
-    }
-    
-    func validPositions(of piece: ChessPiece) -> [Position] {
-        return []
-    }
-}
-
-private extension Dictionary {
-    func merge(_ dict: [Key: Value]) -> [Key: Value] {
-        var newDict = self
-        for (k, v) in dict {
-            newDict.updateValue(v, forKey: k)
-        }
-        return newDict
-    }
 }
