@@ -22,6 +22,10 @@ struct ChessPiece: Hashable {
         self.type = type
     }
     
+    static var nonePiece: ChessPiece {
+        .init(type: .none, color: .none)
+    }
+    
     var point: Int {
         return type.point
     }

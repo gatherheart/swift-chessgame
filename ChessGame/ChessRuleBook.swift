@@ -18,8 +18,8 @@ class ChessRuleBook: RuleRetunable {
     func startPositions() -> [Position: ChessPiece] {
         return makeLine(at: 0)
             .merge(makeLine(at: 1))
+            .merge(makeLine(at: 6))
             .merge(makeLine(at: 7))
-            .merge(makeLine(at: 8))
     }
     
     func validPositions(of piece: ChessPiece) -> [Position] {
