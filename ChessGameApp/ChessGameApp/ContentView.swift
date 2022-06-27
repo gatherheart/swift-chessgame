@@ -10,11 +10,14 @@ import ChessGameFramework
 
 struct ContentView: View {
     
-    @StateObject var viewModel = ChessViewModel()
     
     @State var selection: Bool = false
-    @State var item: ChessPiece?
-    
+    @State var item: (Position, ChessPiece)?
+    @State var previousItem: (Position, ChessPiece)?
+    @EnvironmentObject var gameController: ChessGameController
+
+    @StateObject var viewModel = ChessViewModel()
+
     var body: some View {
         BoardView(items: $viewModel.items,
                   selection: $selection,
@@ -22,24 +25,49 @@ struct ContentView: View {
                   action: tapped,
                   rows: viewModel.items.count,
                   columns: viewModel.items.count)
+        .onAppear {
+            viewModel.gameController = gameController
+        }
     }
     
     private func tapped() {
-        print(selection, item)
+        
+        guard let (position, chess) = item else { return }
+        guard let previousItem = previousItem else {
+            previousItem = item
+            return
+        }
+        
+        
+        // chess and move
+        if chess.type == ChessPiece.PieceType.none,
+           previousItem.1.type != ChessPiece.PieceType.none {
+            
+            gameController.board.set(piece: previousItem.1, from: previousItem.0, to: position)
+            
+        }
+        
+        
+        self.previousItem = item
     }
 }
 
 class ChessViewModel: ObservableObject {
-    let chessController: ChessGameController
-    @Published var board: ChessBoard
+    @Published var board: ChessBoard? {
+        didSet {
+            self.setBoard()
+        }
+    }
+    var gameController: ChessGameController? {
+        didSet {
+            self.board = gameController?.board
+        }
+    }
     var items: [[ChessPiece]] = []
-    
-    init() {
-        chessController = ChessGameController(ruleBook: ChessRuleBook())
-        board = chessController.board
-        
+
+    private func setBoard() {
         for row in Position.Row.allCases {
-            items.append(board[row])
+            items.append(board![row])
         }
     }
 }

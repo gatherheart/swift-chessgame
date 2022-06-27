@@ -36,6 +36,11 @@ public struct Position: Hashable, Equatable {
         return lhs.row == rhs.row && lhs.col == rhs.col
     }
     
+    public init(row: Row, col: Column) {
+        self.row = row
+        self.col = col
+    }
+    
 }
 
 public extension Position {

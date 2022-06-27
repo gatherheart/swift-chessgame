@@ -22,11 +22,11 @@ public class ChessBoard {
         return Array(board.keys)
     }
     
-    func piece(at position: Position) -> ChessPiece? {
+    public func piece(at position: Position) -> ChessPiece? {
         return board[position]
     }
     
-    func set(piece: ChessPiece, from: Position, to: Position) -> Bool {
+    public func set(piece: ChessPiece, from: Position, to: Position) -> Bool {
         guard let toPiece = board[to], toPiece.color != piece.color else { return false }
         board[from] = .nonePiece
         board[to] = piece
