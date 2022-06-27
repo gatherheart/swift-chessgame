@@ -7,22 +7,24 @@
 
 import Foundation
 
-protocol RuleReturnable {
+public protocol RuleReturnable {
     func startPositions() -> [Position: ChessPiece]
     func isAvailable(with piece: ChessPiece, from: Position, to: Position) -> Bool
 }
 
-class ChessRuleBook: RuleReturnable {
+open class ChessRuleBook: RuleReturnable {
     typealias PieceType = ChessPiece.PieceType
     
-    func startPositions() -> [Position: ChessPiece] {
+    public init() {}
+    
+    public func startPositions() -> [Position: ChessPiece] {
         return makeLine(at: 0)
             .merge(makeLine(at: 1))
             .merge(makeLine(at: 6))
             .merge(makeLine(at: 7))
     }
     
-    func isAvailable(with piece: ChessPiece, from: Position, to: Position) -> Bool {
+    public func isAvailable(with piece: ChessPiece, from: Position, to: Position) -> Bool {
         let movements = piece.movements
         let moveToDestination = movement(from: from, to: to)
         

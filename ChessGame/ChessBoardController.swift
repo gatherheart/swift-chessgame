@@ -11,7 +11,7 @@ protocol GameControllable {
     func start() -> Void
 }
 
-class ChessGameController: GameControllable {
+open class ChessGameController: GameControllable {
     
     
     /*
@@ -30,14 +30,12 @@ class ChessGameController: GameControllable {
     let board: ChessBoard
     let ruleBook: RuleReturnable
     
-    init(ruleBook: RuleReturnable) {
+    public init(ruleBook: RuleReturnable) {
         self.ruleBook = ruleBook
         self.board = ChessBoard(positions: ruleBook.startPositions())
     }
     
-    func start() {
-        let from = Position(row: .one, col: .a)
-        move(from: from, to: Position(row: .two, col: .a))
+    public func start() {
     }
     
     private func move(from: Position, to: Position) -> Bool {

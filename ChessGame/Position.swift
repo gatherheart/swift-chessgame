@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Movement: Hashable {
+public struct Movement: Hashable {
         
     enum Direction: Int, Comparable {
         case up = 0
@@ -28,23 +28,23 @@ struct Movement: Hashable {
     }
 }
 
-struct Position: Hashable, Equatable {
+public struct Position: Hashable, Equatable {
     let row: Row
     let col: Column
     
-    static func == (lhs: Position, rhs: Position) -> Bool {
+    public static func == (lhs: Position, rhs: Position) -> Bool {
         return lhs.row == rhs.row && lhs.col == rhs.col
     }
     
 }
 
-extension Position {
+public extension Position {
     enum Row: Int, CaseIterable, RangeExpression {
-        typealias Bound = Int
+        public typealias Bound = Int
         
         case one = 0, two, three, four, five, six, seven, eight
         
-        init?(rawValue: Int) {
+        public init?(rawValue: Int) {
             switch rawValue {
             case 0: self = .one
             case 1: self = .two
@@ -81,7 +81,7 @@ extension Position {
     enum Column: Int, CaseIterable {
         case a = 0, b, c, d, e, f, g, h
         
-        init?(rawValue: Int) {
+        public init?(rawValue: Int) {
             switch rawValue {
             case 0: self = .a
             case 1: self = .b

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ChessPiece: Hashable {
+public struct ChessPiece: Hashable {
     
     let type: PieceType
     let color: Color
@@ -25,7 +25,7 @@ struct ChessPiece: Hashable {
         self.movements = []
     }
     
-    static func == (lhs: ChessPiece, rhs: ChessPiece) -> Bool {
+    public static func == (lhs: ChessPiece, rhs: ChessPiece) -> Bool {
         return lhs.type == rhs.type && lhs.color == rhs.color
     }
     
