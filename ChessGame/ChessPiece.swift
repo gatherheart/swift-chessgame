@@ -11,15 +11,22 @@ struct ChessPiece: Hashable {
     
     let type: PieceType
     let color: Color
-    
-    init(type: PieceType, color: Color) {
+    let movements: [Movement]
+
+    init(type: PieceType, color: Color, movements: [Movement] = []) {
         self.color = color
         self.type = type
+        self.movements = movements
     }
     
     init(type: PieceType) {
         self.color = .none
         self.type = type
+        self.movements = []
+    }
+    
+    static func == (lhs: ChessPiece, rhs: ChessPiece) -> Bool {
+        return lhs.type == rhs.type && lhs.color == rhs.color
     }
     
     static var nonePiece: ChessPiece {

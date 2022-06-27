@@ -31,7 +31,10 @@ class ChessBoard {
         return board[position]
     }
     
-    func move(piece: ChessPiece, to position: Position) -> Bool {
+    func set(piece: ChessPiece, from: Position, to: Position) -> Bool {
+        guard let toPiece = board[to], toPiece.color != piece.color else { return false }
+        board[from] = .nonePiece
+        board[to] = piece
         return true
     }
     

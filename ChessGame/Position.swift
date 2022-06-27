@@ -7,6 +7,27 @@
 
 import Foundation
 
+struct Movement: Hashable {
+        
+    enum Direction: Int, Comparable {
+        case up = 0
+        case right
+        case down
+        case left
+        
+        static func < (lhs: Movement.Direction, rhs: Movement.Direction) -> Bool {
+            return lhs.rawValue < rhs.rawValue
+        }
+    }
+    
+    let repeatable: Bool
+    let directions: [Direction]
+    
+    static func directions(of direction: Direction, count: Int) -> [Direction] {
+        return Array(repeating: direction, count: abs(count))
+    }
+}
+
 struct Position: Hashable, Equatable {
     let row: Row
     let col: Column

@@ -12,7 +12,9 @@
 		5D3892622864774900A17E2C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3892612864774900A17E2C /* Utilities.swift */; };
 		5D3892632864796500A17E2C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3892612864774900A17E2C /* Utilities.swift */; };
 		5D389265286479CA00A17E2C /* ChessPieceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D389264286479CA00A17E2C /* ChessPieceTest.swift */; };
-		5D38926728649B8500A17E2C /* ChessPositionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D38926628649B8500A17E2C /* ChessPositionTest.swift */; };
+		5D38926728649B8500A17E2C /* ChessGameControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D38926628649B8500A17E2C /* ChessGameControllerTest.swift */; };
+		5D4BD969286997B100696CC7 /* ChessBoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4BD968286997B100696CC7 /* ChessBoardController.swift */; };
+		5D4BD9842869E51000696CC7 /* ChessBoardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4BD968286997B100696CC7 /* ChessBoardController.swift */; };
 		5D98769228642A3B00CD6052 /* ChessRuleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D98769128642A3B00CD6052 /* ChessRuleTest.swift */; };
 		5D9877482864574300CD6052 /* ChessPiece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF2C85286099310027C107 /* ChessPiece.swift */; };
 		5D9877492864574500CD6052 /* ChessRuleBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF2C87286099760027C107 /* ChessRuleBook.swift */; };
@@ -46,7 +48,8 @@
 		5D38925F2864733400A17E2C /* ChessBoardTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessBoardTest.swift; sourceTree = "<group>"; };
 		5D3892612864774900A17E2C /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5D389264286479CA00A17E2C /* ChessPieceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessPieceTest.swift; sourceTree = "<group>"; };
-		5D38926628649B8500A17E2C /* ChessPositionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessPositionTest.swift; sourceTree = "<group>"; };
+		5D38926628649B8500A17E2C /* ChessGameControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessGameControllerTest.swift; sourceTree = "<group>"; };
+		5D4BD968286997B100696CC7 /* ChessBoardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessBoardController.swift; sourceTree = "<group>"; };
 		5D98769128642A3B00CD6052 /* ChessRuleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessRuleTest.swift; sourceTree = "<group>"; };
 		5DFF2C7B286098F10027C107 /* ChessGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ChessGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DFF2C7E286098F10027C107 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -108,6 +111,7 @@
 				5DFF2C89286099ED0027C107 /* Position.swift */,
 				5DFF2C87286099760027C107 /* ChessRuleBook.swift */,
 				5DFF2C8B28609A3E0027C107 /* ChessBoard.swift */,
+				5D4BD968286997B100696CC7 /* ChessBoardController.swift */,
 				5D3892612864774900A17E2C /* Utilities.swift */,
 			);
 			path = ChessGame;
@@ -119,7 +123,7 @@
 				5D98769128642A3B00CD6052 /* ChessRuleTest.swift */,
 				5D38925F2864733400A17E2C /* ChessBoardTest.swift */,
 				5D389264286479CA00A17E2C /* ChessPieceTest.swift */,
-				5D38926628649B8500A17E2C /* ChessPositionTest.swift */,
+				5D38926628649B8500A17E2C /* ChessGameControllerTest.swift */,
 			);
 			path = ChessGameTest;
 			sourceTree = "<group>";
@@ -300,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D4BD969286997B100696CC7 /* ChessBoardController.swift in Sources */,
 				5D3892622864774900A17E2C /* Utilities.swift in Sources */,
 				5DFF2C88286099760027C107 /* ChessRuleBook.swift in Sources */,
 				5DFF2C86286099310027C107 /* ChessPiece.swift in Sources */,
@@ -314,13 +319,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D3892602864733400A17E2C /* ChessBoardTest.swift in Sources */,
-				5D38926728649B8500A17E2C /* ChessPositionTest.swift in Sources */,
+				5D38926728649B8500A17E2C /* ChessGameControllerTest.swift in Sources */,
 				5D9877492864574500CD6052 /* ChessRuleBook.swift in Sources */,
 				5D98769228642A3B00CD6052 /* ChessRuleTest.swift in Sources */,
 				5D98774C2864574C00CD6052 /* main.swift in Sources */,
 				5D98774A2864574700CD6052 /* Position.swift in Sources */,
 				5D9877482864574300CD6052 /* ChessPiece.swift in Sources */,
 				5D3892632864796500A17E2C /* Utilities.swift in Sources */,
+				5D4BD9842869E51000696CC7 /* ChessBoardController.swift in Sources */,
 				5D98774B2864574800CD6052 /* ChessBoard.swift in Sources */,
 				5D389265286479CA00A17E2C /* ChessPieceTest.swift in Sources */,
 			);

@@ -61,6 +61,10 @@ extension MockRuleBook: Mockable {
 }
 
 private class MockRuleBook: RuleReturnable {
+    func isAvailable(with piece: ChessPiece, from: Position, to: Position) -> Bool {
+        return false
+    }
+    
     func startPositions() -> [Position: ChessPiece] {
         return [
             Position(row: .eight, col: .g): ChessPiece(type: .pawn, color: .white),

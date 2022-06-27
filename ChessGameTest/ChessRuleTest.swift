@@ -26,10 +26,8 @@ class RuleTestSpec: QuickSpec {
      */
     
     let pieceTypes: [ChessPiece.PieceType] = [.luke, .knight, .bishop, .none, .queen, .bishop, .knight, .luke]
-    var board: [Position: ChessPiece] = [:]
-    var ruleBook: RuleReturnable = ChessRuleBook()
 
-    private func setBoard() {
+    private func setBoard(_ borad: [Position: ChessBoard]) {
         for row in Position.Row.allCases {
             for col in Position.Column.allCases {
                 switch row {
@@ -46,15 +44,17 @@ class RuleTestSpec: QuickSpec {
                 }
             }
         }
-        
     }
     
     
     override func spec() {
         
+        var board: [Position: ChessPiece] = [:]
+        var ruleBook: RuleReturnable!
+
         beforeEach {
-            self.setBoard()
-            self.ruleBook = ChessRuleBook()
+            self.setBoard(board)
+            ruleBook = ChessRuleBook()
         }
         
         describe("보드 초기화 룰 테스트") {
@@ -73,6 +73,35 @@ class RuleTestSpec: QuickSpec {
                             expect(position).to(equal(self.board[Position(row: row, col: col)]))
                         }
                     }
+                }
+            }
+        }
+        
+        describe("이동 가능 여부 테스트") {
+            
+            var positions: [Position: ChessPiece]!
+            
+            beforeEach {
+                positions = self.ruleBook.startPositions()
+            }
+            
+            context("luke 이동 가능 경로 확인") {
+                
+                var chess: ChessPiece!
+                var position: Position!
+                
+                beforeEach {
+                    let filtered = positions.filter { $0.value.type == .luke && $0.value.color == .white }
+                    chess = filtered.values.first!
+                    position = filtered.keys.first!
+                }
+                
+                it("luke 이동 경로 가능해야 함") {
+                    expect { self.ruleBook.isAvailable(with: chess, from: position, to: Position(row: .six, col: .a))}.to(beTrue())
+                }
+                
+                it("luke 이동 경로 불가능해야 함") {
+                    expect { self.ruleBook.isAvailable(with: chess, from: position, to: Position(row: .six, col: .b))}.to(beFalse())
                 }
             }
         }
