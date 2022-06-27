@@ -16,6 +16,7 @@
 		5D4BD9AF2869F36400696CC7 /* ChessGameAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4BD9AE2869F36400696CC7 /* ChessGameAppUITestsLaunchTests.swift */; };
 		5D4BDA152869F60D00696CC7 /* ChessGameFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4BDA142869F60D00696CC7 /* ChessGameFramework.framework */; };
 		5D4BDA162869F60D00696CC7 /* ChessGameFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4BDA142869F60D00696CC7 /* ChessGameFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5D4BDA182869F85500696CC7 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4BDA172869F85500696CC7 /* BoardView.swift */; };
 		5E4AF667518EDDD38136EA66 /* Pods_ChessGameApp_ChessGameAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFE2684C7861C1F145F30DD5 /* Pods_ChessGameApp_ChessGameAppUITests.framework */; };
 		9D82B0B898DDD7482D82D5AA /* Pods_ChessGameAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DFC51FB54B81785E98EE5D0 /* Pods_ChessGameAppTests.framework */; };
 		AF5ED5A6AF51589B204263A1 /* Pods_ChessGameApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58E1FEBF4F0CECBC7221A80 /* Pods_ChessGameApp.framework */; };
@@ -68,6 +69,7 @@
 		5D4BD9AE2869F36400696CC7 /* ChessGameAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessGameAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5D4BD9E82869F51C00696CC7 /* ChessGameApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ChessGameApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D4BDA142869F60D00696CC7 /* ChessGameFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ChessGameFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D4BDA172869F85500696CC7 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		6DFC51FB54B81785E98EE5D0 /* Pods_ChessGameAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChessGameAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AFDA794E301FF99402840F0 /* Pods-ChessGameAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessGameAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ChessGameAppTests/Pods-ChessGameAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9BD06644155E3958AB6B3A37 /* Pods-ChessGameApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChessGameApp.debug.xcconfig"; path = "Target Support Files/Pods-ChessGameApp/Pods-ChessGameApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			children = (
 				5D4BD9912869F36200696CC7 /* ChessGameAppApp.swift */,
 				5D4BD9932869F36200696CC7 /* ContentView.swift */,
+				5D4BDA172869F85500696CC7 /* BoardView.swift */,
 				5D4BD9952869F36400696CC7 /* Assets.xcassets */,
 				5D4BD9972869F36400696CC7 /* Preview Content */,
 			);
@@ -391,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D4BDA182869F85500696CC7 /* BoardView.swift in Sources */,
 				5D4BD9942869F36200696CC7 /* ContentView.swift in Sources */,
 				5D4BD9922869F36200696CC7 /* ChessGameAppApp.swift in Sources */,
 			);

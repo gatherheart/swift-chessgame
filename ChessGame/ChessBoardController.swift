@@ -27,8 +27,8 @@ open class ChessGameController: GameControllable {
       ABCDEFGH
      */
     
-    let board: ChessBoard
-    let ruleBook: RuleReturnable
+    public let board: ChessBoard
+    public let ruleBook: RuleReturnable
     
     public init(ruleBook: RuleReturnable) {
         self.ruleBook = ruleBook

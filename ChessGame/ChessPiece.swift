@@ -7,11 +7,11 @@
 
 import Foundation
 
-public struct ChessPiece: Hashable {
+public struct ChessPiece: Hashable, CustomStringConvertible {
     
-    let type: PieceType
-    let color: Color
-    let movements: [Movement]
+    public let type: PieceType
+    public let color: Color
+    public let movements: [Movement]
 
     init(type: PieceType, color: Color, movements: [Movement] = []) {
         self.color = color
@@ -45,7 +45,7 @@ public struct ChessPiece: Hashable {
         return color == .white
     }
     
-    var toString: String {
+    public var toString: String {
         switch type {
         case .none:
             return "."
@@ -62,15 +62,18 @@ public struct ChessPiece: Hashable {
         }
     }
 
+    public var description: String {
+        toString
+    }
 }
 
 // MARK: type of pieces
-extension ChessPiece {
+public extension ChessPiece {
     
     enum PieceType {
         case none, pawn, bishop, luke, queen, knight
         
-        var point: Int {
+        public var point: Int {
             switch self {
             case .none:
                 return 0

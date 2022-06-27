@@ -7,18 +7,13 @@
 
 import Foundation
 
-struct BoardSize {
-    let width: Int
-    let height: Int
-}
-
-class ChessBoard {
-    typealias Row = Position.Row
-    typealias Column = Position.Column
+public class ChessBoard {
+    public typealias Row = Position.Row
+    public typealias Column = Position.Column
     
     private var board: [Position: ChessPiece] = [:]
     
-    init(positions: [Position: ChessPiece]) {
+    public init(positions: [Position: ChessPiece]) {
         self.initialize()
         self.board = self.board.merge(positions)
     }
@@ -50,7 +45,7 @@ class ChessBoard {
         }
     }
     
-    subscript(index: Row) -> [ChessPiece] {
+    public subscript(index: Row) -> [ChessPiece] {
         get {
             Column.allCases.compactMap { col in board[Position(row: index, col: col)] }
         }
@@ -58,7 +53,7 @@ class ChessBoard {
 }
 
 extension ChessBoard: CustomStringConvertible {
-    var description: String {
+    public var description: String {
         var result = ""
         for row in Position.Row.allCases {
             result += "\(self[row].map { $0.toString }.joined())\n"
